@@ -1,0 +1,42 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Uploaded images and data (large, personal)
+backend/uploads/*
+!backend/uploads/.gitkeep
+dataset/*
+!dataset/README.md
+
+# Trained models (large; share via Drive/Releases)
+model/saved_models/*
+!model/saved_models/.gitkeep
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Local preview database used while Docker is unavailable
+backend/preview.db
+
+# Design-skill working files
+.taste-skill/

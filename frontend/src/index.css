@@ -1,0 +1,214 @@
+@import 'tailwindcss';
+@import '@fontsource/spectral/500.css';
+@import '@fontsource/spectral/600.css';
+@import '@fontsource-variable/public-sans';
+
+/*
+ * Druk Lens tokens.
+ * Frame: whitewashed dzong stone; sheet: paper white; ink: warm near-black.
+ * Maroon (the monastic robe) is the one primary action; saffron is the one data hue;
+ * chilli red is kept for what failed. The kira band colours appear only in the woven marks.
+ */
+:root {
+  --chrome: #f3eee6;
+  --sheet: #fffdfa;
+  --surface: #ffffff;
+  --raised: #f8f4ee;
+  --active: #ece5da;
+  --border: #e7e0d5;
+  --rule: #f1ece4;
+  --control: #d3c9bb;
+
+  --text: #1d1714;
+  --muted: #5d534c;
+  --faint: #6e655d;
+
+  --primary: #7b1e2b;
+  --primary-hover: #651722;
+  --on-primary: #ffffff;
+
+  --accent: #d99a1e;
+  --accent-ink: #8a5a00;
+  --accent-soft: #f7e7c4;
+
+  --positive: #247b50;
+  --pill-positive-bg: #dcf4e4;
+  --pill-positive-ink: #0f3b23;
+  --negative: #c4242a;
+  --pill-negative-bg: #fdebe7;
+  --pill-negative-ink: #831c1e;
+  --pill-warning-bg: #fff6e0;
+  --pill-warning-ink: #7a4a00;
+  --pill-warning-border: #f1d27a;
+
+  --weave-maroon: #7b1e2b;
+  --weave-saffron: #d99a1e;
+  --weave-green: #2f6b4f;
+  --weave-ivory: #f6efe3;
+  --weave-ink: #2a211d;
+
+  --focus: #7b1e2b;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --chrome: #0d0b0a;
+    --sheet: #141110;
+    --surface: #1b1716;
+    --raised: #1c1816;
+    --active: #2a2422;
+    --border: #2c2523;
+    --rule: #221d1b;
+    --control: #4a403b;
+    --text: #f5efe8;
+    --muted: #bcb1a8;
+    --faint: #9a8f86;
+    --primary: #e9b23a;
+    --primary-hover: #f2c25a;
+    --on-primary: #1d1714;
+    --accent: #e9b23a;
+    --accent-ink: #f0c25c;
+    --accent-soft: #3a2c12;
+    --positive: #4cc488;
+    --pill-positive-bg: #15281d;
+    --pill-positive-ink: #6fd6a0;
+    --negative: #ef6a62;
+    --pill-negative-bg: #2e1a19;
+    --pill-negative-ink: #f39b94;
+    --pill-warning-bg: #2c2210;
+    --pill-warning-ink: #f0c25c;
+    --pill-warning-border: #5a4415;
+    --weave-maroon: #9b3141;
+    --weave-ivory: #e8dccb;
+    --weave-ink: #0a0807;
+    --focus: #e9b23a;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --chrome: #0d0b0a;
+  --sheet: #141110;
+  --surface: #1b1716;
+  --raised: #1c1816;
+  --active: #2a2422;
+  --border: #2c2523;
+  --rule: #221d1b;
+  --control: #4a403b;
+  --text: #f5efe8;
+  --muted: #bcb1a8;
+  --faint: #9a8f86;
+  --primary: #e9b23a;
+  --primary-hover: #f2c25a;
+  --on-primary: #1d1714;
+  --accent: #e9b23a;
+  --accent-ink: #f0c25c;
+  --accent-soft: #3a2c12;
+  --positive: #4cc488;
+  --pill-positive-bg: #15281d;
+  --pill-positive-ink: #6fd6a0;
+  --negative: #ef6a62;
+  --pill-negative-bg: #2e1a19;
+  --pill-negative-ink: #f39b94;
+  --pill-warning-bg: #2c2210;
+  --pill-warning-ink: #f0c25c;
+  --pill-warning-border: #5a4415;
+  --weave-maroon: #9b3141;
+  --weave-ivory: #e8dccb;
+  --weave-ink: #0a0807;
+  --focus: #e9b23a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-chrome: var(--chrome);
+  --color-sheet: var(--sheet);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-active: var(--active);
+  --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-control: var(--control);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+
+  --font-sans: 'Public Sans Variable', system-ui, sans-serif;
+  --font-serif: 'Spectral', Georgia, serif;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background: var(--chrome);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--accent-soft);
+    color: var(--text);
+  }
+  /* The browser's autofill paints fields pale blue (or navy in dark mode); keep our own surface. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text);
+    caret-color: var(--text);
+    box-shadow: 0 0 0 1000px var(--surface) inset;
+    transition: background-color 9999s ease-out;
+  }
+  button,
+  [role='button'] {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* 16px stops iOS zooming into the field */
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
