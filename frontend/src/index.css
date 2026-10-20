@@ -150,6 +150,13 @@
 }
 
 @layer base {
+  /* Square corners everywhere, including native selects, search fields and file buttons. */
+  *,
+  ::before,
+  ::after,
+  ::file-selector-button {
+    border-radius: 0;
+  }
   html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;

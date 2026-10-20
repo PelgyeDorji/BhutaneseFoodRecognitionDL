@@ -7,8 +7,8 @@ import { percent } from '../lib/format'
 export function ConfidenceMeter({ value, threshold }: { value: number; threshold: number }) {
   return (
     <div>
-      <div className="relative h-2 rounded-full bg-active" role="presentation">
-        <div className="absolute inset-y-0 left-0 rounded-full bg-accent" style={{ width: `${value * 100}%` }} />
+      <div className="relative h-2 bg-active" role="presentation">
+        <div className="absolute inset-y-0 left-0 bg-accent" style={{ width: `${value * 100}%` }} />
         <div
           className="absolute -inset-y-1 w-px bg-ink"
           style={{ left: `${threshold * 100}%` }}
@@ -37,9 +37,9 @@ export function Candidates({ items }: { items: { slug: string; name: string; con
             <span className={index === 0 ? 'font-medium text-ink' : 'text-ink'}>{item.name}</span>
             <span className="num text-muted">{percent(item.confidence, 1)}</span>
           </div>
-          <div className="mt-1.5 h-[3px] rounded-full bg-active">
+          <div className="mt-1.5 h-[3px] bg-active">
             <div
-              className={index === 0 ? 'h-full rounded-full bg-accent' : 'h-full rounded-full bg-faint/50'}
+              className={index === 0 ? 'h-full bg-accent' : 'h-full bg-faint/50'}
               style={{ width: `${(item.confidence / top) * 100}%` }}
             />
           </div>

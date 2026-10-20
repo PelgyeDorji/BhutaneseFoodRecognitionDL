@@ -32,6 +32,7 @@ createRoot(document.getElementById('root')!).render(
                 background: 'var(--surface)',
                 color: 'var(--text)',
                 border: '1px solid var(--border)',
+                borderRadius: 0,
                 fontFamily: 'var(--font-sans)',
               },
             }}

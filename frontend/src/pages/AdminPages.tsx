@@ -29,7 +29,7 @@ function SummaryStrip() {
     { label: 'Said right', value: data ? (data.accuracy === null ? '—' : percent(data.accuracy)) : undefined },
   ]
   return (
-    <dl className="mb-6 grid grid-cols-2 overflow-hidden rounded-2xl bg-raised lg:grid-cols-4">
+    <dl className="mb-6 grid grid-cols-2 overflow-hidden bg-raised lg:grid-cols-4">
       {cells.map((cell, i) => (
         <div
           key={cell.label}
@@ -63,7 +63,7 @@ function useParam(key: string) {
 
 function Empty({ children }: { children: ReactNode }) {
   return (
-    <p className="rounded-xl border border-dashed border-control px-4 py-4 text-[14px] text-muted">{children}</p>
+    <p className="border border-dashed border-control px-4 py-4 text-[14px] text-muted">{children}</p>
   )
 }
 
@@ -123,14 +123,14 @@ export function AdminUsersPage() {
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           placeholder="Search by name or email"
-          className="h-10 w-full rounded-full border border-control bg-surface pl-10 pr-4 text-ink placeholder:text-faint"
+          className="h-10 w-full border border-control bg-surface pl-10 pr-4 text-ink placeholder:text-faint"
         />
       </div>
 
       {query.isError ? (
         <InlineError message="Couldn’t load users." onRetry={() => query.refetch()} />
       ) : (
-        <div className="overflow-x-auto rounded-2xl bg-raised">
+        <div className="overflow-x-auto bg-raised">
           <table className="w-full min-w-[720px] text-left text-[14px]">
             <thead className="text-[12px] text-muted">
               <tr>
@@ -158,7 +158,7 @@ export function AdminUsersPage() {
                       <span className="flex items-center gap-2">
                         <span className="truncate font-medium text-ink group-hover:underline group-hover:underline-offset-4">{u.name}</span>
                         {u.is_admin && (
-                          <span className="inline-flex h-5 flex-none items-center rounded-full bg-active px-2 text-[11px] font-medium text-muted">
+                          <span className="inline-flex h-5 flex-none items-center bg-active px-2 text-[11px] font-medium text-muted">
                             Admin
                           </span>
                         )}
@@ -238,7 +238,7 @@ function ScanDetail({ scan, threshold, onClose }: { scan: AdminScan; threshold: 
           <p className="min-w-0 truncate text-[13px] text-muted">
             {scan.user.name} · {when(scan.created_at)}
           </p>
-          <button type="button" onClick={onClose} className="grid size-10 place-items-center rounded-full hover:bg-active" aria-label="Close">
+          <button type="button" onClick={onClose} className="grid size-10 place-items-center hover:bg-active" aria-label="Close">
             <X className="size-5" aria-hidden="true" />
           </button>
         </div>
@@ -288,7 +288,7 @@ const ANSWERS: { value: Answer | ''; label: string }[] = [
 
 function Segmented<T extends string>({ value, options, onChange, label }: { value: T; options: { value: T; label: string }[]; onChange: (v: T) => void; label: string }) {
   return (
-    <div className="flex max-w-full gap-1 overflow-x-auto rounded-full bg-raised p-1" role="group" aria-label={label}>
+    <div className="flex max-w-full gap-1 overflow-x-auto bg-raised p-1" role="group" aria-label={label}>
       {options.map((option) => (
         <button
           key={option.label}
@@ -296,7 +296,7 @@ function Segmented<T extends string>({ value, options, onChange, label }: { valu
           onClick={() => onChange(option.value)}
           aria-pressed={value === option.value}
           className={clsx(
-            'h-8 flex-none whitespace-nowrap rounded-full px-3.5 text-[13px] transition-colors duration-150',
+            'h-8 flex-none whitespace-nowrap px-3.5 text-[13px] transition-colors duration-150',
             value === option.value ? 'bg-surface font-medium text-ink' : 'text-muted hover:text-ink',
           )}
         >
@@ -370,7 +370,7 @@ export function AdminScansPage() {
           id="admin-dish"
           value={dish}
           onChange={(e) => setDish(e.target.value || null)}
-          className="h-10 rounded-full border border-control bg-surface px-4 pr-8 text-[14px] text-ink"
+          className="h-10 border border-control bg-surface px-4 pr-8 text-[14px] text-ink"
         >
           <option value="">Every dish</option>
           {dishes.map((d) => (
@@ -380,12 +380,12 @@ export function AdminScansPage() {
           ))}
         </select>
         {userId && (
-          <span className="inline-flex h-10 items-center gap-1 rounded-full bg-active pl-4 pr-1.5 text-[14px]">
+          <span className="inline-flex h-10 items-center gap-1 bg-active pl-4 pr-1.5 text-[14px]">
             {person ? person.name : `User ${userId}`}
             <button
               type="button"
               onClick={() => setUser(null)}
-              className="grid size-7 place-items-center rounded-full hover:bg-surface"
+              className="grid size-7 place-items-center hover:bg-surface"
               aria-label="Show every user"
             >
               <X className="size-3.5" aria-hidden="true" />
@@ -397,7 +397,7 @@ export function AdminScansPage() {
       {query.isError ? (
         <InlineError message="Couldn’t load scans." onRetry={() => query.refetch()} />
       ) : (
-        <div className="overflow-hidden rounded-2xl bg-raised">
+        <div className="overflow-hidden bg-raised">
           <table className="w-full text-left text-[14px]">
             <thead className="hidden text-[12px] text-muted md:table-header-group">
               <tr>
@@ -428,7 +428,7 @@ export function AdminScansPage() {
                 >
                   <td className="px-5 py-3">
                     <div className="flex items-center gap-3">
-                      <img src={row.thumb_url} alt="" className="size-12 flex-none rounded-lg object-cover" />
+                      <img src={row.thumb_url} alt="" className="size-12 flex-none object-cover" />
                       <div className="min-w-0">
                         <button
                           type="button"
@@ -516,7 +516,7 @@ export function AdminFeedbackPage() {
           <a
             href={api.admin.feedbackCsvUrl}
             download
-            className="inline-flex h-10 items-center gap-2 rounded-full bg-primary px-4.5 text-[14px] font-medium text-on-primary transition-[transform,background-color] duration-150 hover:bg-primary-hover active:scale-[0.97]"
+            className="inline-flex h-10 items-center gap-2 bg-primary px-4.5 text-[14px] font-medium text-on-primary transition-[transform,background-color] duration-150 hover:bg-primary-hover active:scale-[0.97]"
           >
             <Download className="size-4" aria-hidden="true" /> Export CSV
           </a>
@@ -534,7 +534,7 @@ export function AdminFeedbackPage() {
             <ul className="space-y-2">
               {query.isLoading &&
                 [0, 1, 2].map((i) => (
-                  <li key={i} className="flex h-[76px] items-center gap-3 rounded-2xl bg-raised px-4">
+                  <li key={i} className="flex h-[76px] items-center gap-3 bg-raised px-4">
                     <Bar className="size-12" />
                     <Bar className="h-4 w-56" />
                   </li>
@@ -544,9 +544,9 @@ export function AdminFeedbackPage() {
                   <button
                     type="button"
                     onClick={() => setOpen(String(row.id), false)}
-                    className="flex w-full items-start gap-3 rounded-2xl bg-raised px-4 py-3.5 text-left transition-colors hover:bg-active/60"
+                    className="flex w-full items-start gap-3 bg-raised px-4 py-3.5 text-left transition-colors hover:bg-active/60"
                   >
-                    <img src={row.thumb_url} alt="" className="size-12 flex-none rounded-lg object-cover" />
+                    <img src={row.thumb_url} alt="" className="size-12 flex-none object-cover" />
                     <div className="min-w-0 flex-1">
                       <p className="flex flex-wrap items-center gap-x-2 text-[15px]">
                         {row.feedback?.is_correct ? (

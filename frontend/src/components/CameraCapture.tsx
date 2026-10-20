@@ -77,7 +77,7 @@ export function CameraCapture({ onCapture, onClose }: Props) {
         <button
           type="button"
           onClick={onClose}
-          className="grid size-11 place-items-center rounded-full hover:bg-white/10"
+          className="grid size-11 place-items-center hover:bg-white/10"
           aria-label="Close camera"
         >
           <X className="size-5" aria-hidden="true" />
@@ -86,7 +86,7 @@ export function CameraCapture({ onCapture, onClose }: Props) {
         <button
           type="button"
           onClick={() => setFacing((f) => (f === 'environment' ? 'user' : 'environment'))}
-          className="grid size-11 place-items-center rounded-full hover:bg-white/10"
+          className="grid size-11 place-items-center hover:bg-white/10"
           aria-label="Switch camera"
         >
           <RefreshCw className="size-5" aria-hidden="true" />
@@ -121,10 +121,10 @@ export function CameraCapture({ onCapture, onClose }: Props) {
             type="button"
             onClick={capture}
             disabled={!ready}
-            className="grid size-[72px] place-items-center rounded-full border-4 border-white/90 transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.94] disabled:opacity-50"
+            className="grid size-[72px] place-items-center border-4 border-white/90 transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.94] disabled:opacity-50"
             aria-label="Take photo"
           >
-            <span className="grid size-14 place-items-center rounded-full bg-white text-black">
+            <span className="grid size-14 place-items-center bg-white text-black">
               <Camera className="size-6" aria-hidden="true" />
             </span>
           </button>

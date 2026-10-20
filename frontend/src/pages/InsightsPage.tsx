@@ -45,7 +45,7 @@ export default function InsightsPage() {
       <PageTitle title="Insights" sub={stats ? finding(stats) : 'Loading…'} />
 
       {/* 12 columns: 3/3/3/3, then 9 + 3, then 6 + 6 — every internal edge meets one above it. */}
-      <dl className="mb-4 grid grid-cols-2 overflow-hidden rounded-2xl bg-raised lg:grid-cols-4">
+      <dl className="mb-4 grid grid-cols-2 overflow-hidden bg-raised lg:grid-cols-4">
         {counts.map((cell, i) => (
           <div
             key={cell.label}
@@ -86,8 +86,8 @@ export default function InsightsPage() {
               <p className="mt-2 text-[14px] text-muted">
                 {stats.correct} of {plural(stats.with_feedback, 'answer')} said right
               </p>
-              <div className="mt-4 h-2 rounded-full bg-active">
-                <div className="h-full rounded-full bg-positive" style={{ width: `${stats.accuracy * 100}%` }} />
+              <div className="mt-4 h-2 bg-active">
+                <div className="h-full bg-positive" style={{ width: `${stats.accuracy * 100}%` }} />
               </div>
             </>
           )}
@@ -106,9 +106,9 @@ export default function InsightsPage() {
                       <span className="truncate font-serif text-[16px] font-semibold">{dish.name}</span>
                       <span className="num text-[14px] text-muted">{dish.count}</span>
                     </div>
-                    <div className="mt-1.5 h-[3px] rounded-full bg-active">
+                    <div className="mt-1.5 h-[3px] bg-active">
                       <div
-                        className={`h-full rounded-full ${index === 0 ? 'bg-accent' : 'bg-faint/50'}`}
+                        className={`h-full  ${index === 0 ? 'bg-accent' : 'bg-faint/50'}`}
                         style={{ width: `${(dish.count / topMax) * 100}%` }}
                       />
                     </div>
@@ -117,7 +117,7 @@ export default function InsightsPage() {
               ))}
             </ol>
           ) : (
-            <p className="rounded-xl border border-dashed border-control px-4 py-4 text-[14px] text-muted">
+            <p className="border border-dashed border-control px-4 py-4 text-[14px] text-muted">
               {stats ? 'Your most-scanned dishes will rank here.' : 'Loading…'}
             </p>
           )}
@@ -148,7 +148,7 @@ export default function InsightsPage() {
               </tbody>
             </table>
           ) : (
-            <p className="rounded-xl border border-dashed border-control px-4 py-4 text-[14px] text-muted">
+            <p className="border border-dashed border-control px-4 py-4 text-[14px] text-muted">
               {stats
                 ? 'When you mark a scan wrong and pick the right dish, the pair shows here. These are the failure cases for the report.'
                 : 'Loading…'}

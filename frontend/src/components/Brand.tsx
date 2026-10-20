@@ -23,7 +23,7 @@ export function Mark({ size = 28 }: { size?: number }) {
 
 export function Wordmark({ to = '/' }: { to?: string }) {
   return (
-    <Link to={to} className="flex items-center gap-2.5 rounded-lg text-ink">
+    <Link to={to} className="flex items-center gap-2.5 text-ink">
       <Mark />
       <span className="leading-tight">
         <span className="block font-serif text-[19px] font-semibold tracking-[-0.01em]">Druk Lens</span>

@@ -63,7 +63,7 @@ function NavItem({ to, label, icon: Icon, end }: { to: string; label: string; ic
       end={end}
       className={({ isActive }) =>
         clsx(
-          'flex h-10 items-center gap-3 rounded-[10px] px-3 text-[14px] transition-colors duration-150',
+          'flex h-10 items-center gap-3 px-3 text-[14px] transition-colors duration-150',
           isActive ? 'bg-active font-medium text-ink' : 'text-muted hover:bg-active/60 hover:text-ink',
         )
       }
@@ -76,7 +76,7 @@ function NavItem({ to, label, icon: Icon, end }: { to: string; label: string; ic
 
 function Initial({ name }: { name: string }) {
   return (
-    <span className="grid size-8 flex-none place-items-center rounded-full bg-accent-soft font-serif text-[14px] font-semibold text-accent-ink">
+    <span className="grid size-8 flex-none place-items-center bg-accent-soft font-serif text-[14px] font-semibold text-accent-ink">
       {name.trim().charAt(0).toUpperCase() || '?'}
     </span>
   )
@@ -89,7 +89,7 @@ function Account({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <div className="space-y-1">
       <NavItem to="/settings" label="Settings" icon={Settings} />
-      <div className="flex items-center gap-3 rounded-[10px] px-3 py-2.5">
+      <div className="flex items-center gap-3 px-3 py-2.5">
         <Initial name={user.name} />
         <div className="min-w-0 flex-1 leading-tight">
           <p className="truncate text-[14px] font-medium text-ink">{user.name}</p>
@@ -102,7 +102,7 @@ function Account({ onNavigate }: { onNavigate?: () => void }) {
             await signOut()
             navigate('/login', { replace: true })
           }}
-          className="grid size-8 flex-none place-items-center rounded-full text-muted transition-colors hover:bg-active hover:text-ink"
+          className="grid size-8 flex-none place-items-center text-muted transition-colors hover:bg-active hover:text-ink"
           aria-label="Sign out"
           title="Sign out"
         >
@@ -157,7 +157,7 @@ function PhoneBar({ children }: { children?: ReactNode }) {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="grid size-11 place-items-center rounded-full text-ink transition-colors hover:bg-active"
+          className="grid size-11 place-items-center text-ink transition-colors hover:bg-active"
           aria-label="Open menu"
           aria-expanded={open}
         >
@@ -181,7 +181,7 @@ function PhoneBar({ children }: { children?: ReactNode }) {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="grid size-11 place-items-center rounded-full hover:bg-active"
+                className="grid size-11 place-items-center hover:bg-active"
                 aria-label="Close menu"
               >
                 <X className="size-5" strokeWidth={1.75} aria-hidden="true" />
@@ -212,7 +212,7 @@ export function AppShell() {
         <Sidebar />
         <div className="min-w-0 flex-1 lg:py-2 lg:pr-2">
           <PhoneBar />
-          <main className="min-h-[calc(100dvh-6px)] bg-sheet lg:min-h-[calc(100dvh-22px)] lg:rounded-2xl lg:border lg:border-border">
+          <main className="min-h-[calc(100dvh-6px)] bg-sheet lg:min-h-[calc(100dvh-22px)] lg:border lg:border-border">
             <div className="mx-auto w-full max-w-[1132px] px-4 pb-16 pt-6 sm:px-6 lg:px-4 lg:pt-14">
               <Outlet />
             </div>

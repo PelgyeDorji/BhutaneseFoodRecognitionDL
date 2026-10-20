@@ -37,7 +37,7 @@ export function WeaveChart({ days }: { days: Day[] }) {
               {Array.from({ length: d.count }, (_, t) => (
                 <span
                   key={t}
-                  className="block w-full rounded-[2px] bg-accent"
+                  className="block w-full bg-accent"
                   style={{ height: thread, opacity: t % 2 ? 0.82 : 1 }}
                 />
               ))}

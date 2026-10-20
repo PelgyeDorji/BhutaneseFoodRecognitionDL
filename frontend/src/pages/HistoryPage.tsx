@@ -74,7 +74,7 @@ function Detail({ prediction, onClose }: { prediction: Prediction; onClose: () =
           <button
             type="button"
             onClick={onClose}
-            className="grid size-10 place-items-center rounded-full hover:bg-active"
+            className="grid size-10 place-items-center hover:bg-active"
             aria-label="Close"
           >
             <X className="size-5" aria-hidden="true" />
@@ -167,7 +167,7 @@ export default function HistoryPage() {
       />
 
       <div className="mb-5 flex flex-wrap items-center gap-3">
-        <div className="flex max-w-full gap-1 overflow-x-auto rounded-full bg-raised p-1" role="group" aria-label="Filter by your answer">
+        <div className="flex max-w-full gap-1 overflow-x-auto bg-raised p-1" role="group" aria-label="Filter by your answer">
           {ANSWERS.map((option) => (
             <button
               key={option.label}
@@ -175,7 +175,7 @@ export default function HistoryPage() {
               onClick={() => set('answer', option.value || null)}
               aria-pressed={answer === option.value}
               className={clsx(
-                'h-8 flex-none whitespace-nowrap rounded-full px-3.5 text-[13px] transition-colors duration-150',
+                'h-8 flex-none whitespace-nowrap px-3.5 text-[13px] transition-colors duration-150',
                 answer === option.value ? 'bg-surface font-medium text-ink' : 'text-muted hover:text-ink',
               )}
             >
@@ -190,7 +190,7 @@ export default function HistoryPage() {
           id="dish-filter"
           value={dish}
           onChange={(event) => set('dish', event.target.value || null)}
-          className="h-10 rounded-full border border-control bg-surface px-4 pr-8 text-[14px] text-ink"
+          className="h-10 border border-control bg-surface px-4 pr-8 text-[14px] text-ink"
         >
           <option value="">Every dish</option>
           {dishes.map((d) => (
@@ -213,7 +213,7 @@ export default function HistoryPage() {
       {query.isError ? (
         <InlineError message="Couldn’t load your history." onRetry={() => query.refetch()} />
       ) : (
-        <div className="overflow-hidden rounded-2xl bg-raised">
+        <div className="overflow-hidden bg-raised">
           <table className="w-full text-left text-[14px]">
             <thead className="hidden text-[12px] text-muted md:table-header-group">
               <tr>
@@ -243,7 +243,7 @@ export default function HistoryPage() {
                 >
                   <td className="px-5 py-3">
                     <div className="flex items-center gap-3">
-                      <img src={row.thumb_url} alt="" className="size-12 flex-none rounded-lg object-cover" />
+                      <img src={row.thumb_url} alt="" className="size-12 flex-none object-cover" />
                       <div className="min-w-0">
                         <button
                           type="button"
@@ -281,7 +281,7 @@ export default function HistoryPage() {
               {!query.isLoading && rows.length === 0 && (
                 <tr>
                   <td colSpan={4} className="px-5 py-5">
-                    <p className="rounded-xl border border-dashed border-control px-4 py-4 text-[14px] text-muted">
+                    <p className="border border-dashed border-control px-4 py-4 text-[14px] text-muted">
                       {filtered ? (
                         'No scans match these filters.'
                       ) : (

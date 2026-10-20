@@ -48,7 +48,7 @@ function Counts({ stats, loading }: { stats?: Stats; loading: boolean }) {
     { label: 'Dishes seen', value: stats?.dishes_seen, suffix: ` of ${DISH_COUNT}`, note: 'Different dishes named' },
   ]
   return (
-    <dl className="mb-4 grid grid-cols-2 overflow-hidden rounded-2xl bg-raised lg:grid-cols-4">
+    <dl className="mb-4 grid grid-cols-2 overflow-hidden bg-raised lg:grid-cols-4">
       {cells.map((cell, i) => (
         <div
           key={cell.label}
@@ -106,7 +106,7 @@ function Recent() {
       {isLoading ? (
         <ul className="space-y-2">
           {[0, 1, 2].map((i) => (
-            <li key={i} className="flex h-[60px] items-center gap-3 rounded-xl bg-sheet px-3">
+            <li key={i} className="flex h-[60px] items-center gap-3 bg-sheet px-3">
               <Bar className="size-10" />
               <Bar className="h-3.5 w-24" />
             </li>
@@ -120,9 +120,9 @@ function Recent() {
             <li key={p.id}>
               <Link
                 to={`/history?open=${p.id}`}
-                className="flex h-[60px] items-center gap-3 rounded-xl border border-transparent bg-sheet px-3 transition-colors hover:border-border"
+                className="flex h-[60px] items-center gap-3 border border-transparent bg-sheet px-3 transition-colors hover:border-border"
               >
-                <img src={p.thumb_url} alt="" className="size-10 flex-none rounded-lg object-cover" />
+                <img src={p.thumb_url} alt="" className="size-10 flex-none object-cover" />
                 <span className="min-w-0 flex-1 leading-tight">
                   <span className="block truncate font-serif text-[15px] font-semibold">{p.predicted_name}</span>
                   <span className="block truncate text-[12px] text-muted">{when(p.created_at)}</span>
@@ -154,7 +154,7 @@ function Result({ result, url, onAgain }: { result: PredictResult; url: string; 
   return (
     <div className="grid gap-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
       <div>
-        <img src={url} alt="Your photo" className="aspect-[4/3] w-full rounded-xl object-cover" />
+        <img src={url} alt="Your photo" className="aspect-[4/3] w-full object-cover" />
         <Button variant="ghost" size="sm" className="mt-3 -ml-2" onClick={onAgain}>
           <RotateCcw className="size-4" aria-hidden="true" /> Scan another dish
         </Button>
@@ -162,7 +162,7 @@ function Result({ result, url, onAgain }: { result: PredictResult; url: string; 
 
       <div className="min-w-0">
         {result.is_placeholder && (
-          <p className="mb-4 rounded-xl border border-[var(--pill-warning-border)] bg-[var(--pill-warning-bg)] px-3.5 py-2.5 text-[13px] text-[var(--pill-warning-ink)]">
+          <p className="mb-4 border border-[var(--pill-warning-border)] bg-[var(--pill-warning-bg)] px-3.5 py-2.5 text-[13px] text-[var(--pill-warning-ink)]">
             Demo answer. The model isn’t trained yet, so this guess is made up from the photo’s pixels. It shows how
             results will look.
           </p>
@@ -283,7 +283,7 @@ function Scanner() {
                 if (file) choose(file)
               }}
               className={clsx(
-                'grid min-h-[340px] place-items-center rounded-xl border border-dashed px-6 py-10 text-center transition-colors duration-150',
+                'grid min-h-[340px] place-items-center border border-dashed px-6 py-10 text-center transition-colors duration-150',
                 dragging ? 'border-primary bg-accent-soft/50' : 'border-control bg-sheet',
               )}
             >
@@ -319,7 +319,7 @@ function Scanner() {
             transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             className="grid gap-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
           >
-            <div className="relative overflow-hidden rounded-xl">
+            <div className="relative overflow-hidden">
               <img src={stage.url} alt="The photo you chose" className="aspect-[4/3] w-full object-cover" />
               {recognise.isPending && (
                 <motion.div

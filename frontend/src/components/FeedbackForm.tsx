@@ -112,7 +112,7 @@ export function FeedbackForm({ prediction, onSaved }: Props) {
                     onClick={() => setActual(dish.slug)}
                     aria-pressed={actual === dish.slug}
                     className={clsx(
-                      'h-9 rounded-full border px-3.5 text-[14px] transition-[background-color,border-color,transform] duration-150 active:scale-[0.97]',
+                      'h-9 border px-3.5 text-[14px] transition-[background-color,border-color,transform] duration-150 active:scale-[0.97]',
                       actual === dish.slug
                         ? 'border-ink bg-ink text-sheet'
                         : 'border-control bg-surface text-ink hover:bg-raised',

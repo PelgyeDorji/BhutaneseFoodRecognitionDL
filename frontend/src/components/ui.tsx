@@ -34,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       disabled={disabled || busy}
       className={clsx(
-        'inline-flex flex-none select-none items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium',
+        'inline-flex flex-none select-none items-center justify-center gap-2 whitespace-nowrap font-medium',
         'transition-[transform,background-color,color] duration-150 ease-[var(--ease-out)] active:scale-[0.97]',
         'disabled:active:scale-100',
         size === 'sm' && 'h-8 px-3.5 text-[13px]',
@@ -54,7 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 })
 
 const fieldClass =
-  'block w-full rounded-[10px] border border-control bg-surface px-3.5 text-ink placeholder:text-faint ' +
+  'block w-full border border-control bg-surface px-3.5 text-ink placeholder:text-faint ' +
   'transition-[border-color,box-shadow] duration-150 hover:border-faint focus:border-[var(--focus)] focus:outline-none ' +
   'focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--focus)_22%,transparent)] ' +
   'aria-[invalid=true]:border-negative'
@@ -148,7 +148,7 @@ export function Panel({
   as?: 'section' | 'div'
 }) {
   return (
-    <Tag className={clsx('rounded-2xl bg-raised p-5', className)}>
+    <Tag className={clsx(' bg-raised p-5', className)}>
       {(title || action) && (
         <div className="mb-4 flex min-h-6 items-center justify-between gap-3">
           {title && <h2 className="text-[15px] font-semibold text-ink">{title}</h2>}
@@ -173,7 +173,7 @@ export function Pill({ tone = 'neutral', children, className }: { tone?: Tone; c
   return (
     <span
       className={clsx(
-        'inline-flex h-6 flex-none items-center gap-1 whitespace-nowrap rounded-full px-2.5 text-[12px] font-medium',
+        'inline-flex h-6 flex-none items-center gap-1 whitespace-nowrap px-2.5 text-[12px] font-medium',
         tones[tone],
         className,
       )}
@@ -185,13 +185,13 @@ export function Pill({ tone = 'neutral', children, className }: { tone?: Tone; c
 
 /** A flat grey bar at the size of the value it stands in for. No shimmer. */
 export function Bar({ className }: { className?: string }) {
-  return <span aria-hidden="true" className={clsx('block rounded-md bg-active', className)} />
+  return <span aria-hidden="true" className={clsx('block bg-active', className)} />
 }
 
 export function InlineError({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
     <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] text-muted" role="alert">
-      <span className="size-2 flex-none rounded-full bg-negative" aria-hidden="true" />
+      <span className="size-2 flex-none bg-negative" aria-hidden="true" />
       {message}
       {onRetry && (
         <button type="button" onClick={onRetry} className="font-medium text-ink underline underline-offset-4">

@@ -18,7 +18,7 @@ function Section({ title, description, children }: { title: string; description:
         <h2 className="text-[16px] font-medium">{title}</h2>
         <div className="mt-1 text-[14px] text-muted">{description}</div>
       </div>
-      <div className="rounded-2xl bg-raised p-5 lg:col-span-7">{children}</div>
+      <div className="bg-raised p-5 lg:col-span-7">{children}</div>
     </section>
   )
 }
@@ -135,7 +135,7 @@ function Appearance() {
           aria-checked={theme === value}
           onClick={() => setTheme(value)}
           className={clsx(
-            'flex h-12 items-center gap-2.5 rounded-xl border px-4 text-[14px] transition-[border-color,background-color,transform] duration-150 active:scale-[0.98]',
+            'flex h-12 items-center gap-2.5 border px-4 text-[14px] transition-[border-color,background-color,transform] duration-150 active:scale-[0.98]',
             theme === value ? 'border-ink bg-surface font-medium' : 'border-border bg-surface/60 text-muted hover:border-control hover:text-ink',
           )}
         >

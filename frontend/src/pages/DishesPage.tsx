@@ -11,7 +11,7 @@ function Spice({ level }: { level: number }) {
     <span className="inline-flex items-center gap-1.5" title={`Spice: ${SPICE[level]}`}>
       <span className="flex gap-0.5" aria-hidden="true">
         {[1, 2, 3].map((n) => (
-          <span key={n} className={`h-2.5 w-1.5 rounded-full ${n <= level ? 'bg-negative' : 'bg-active'}`} />
+          <span key={n} className={`h-2.5 w-1.5  ${n <= level ? 'bg-negative' : 'bg-active'}`} />
         ))}
       </span>
       <span>{SPICE[level]}</span>
@@ -21,7 +21,7 @@ function Spice({ level }: { level: number }) {
 
 function DishCard({ dish }: { dish: Dish }) {
   return (
-    <article className="flex flex-col rounded-2xl bg-raised p-5">
+    <article className="flex flex-col bg-raised p-5">
       <h2 className="font-serif text-[22px] font-semibold leading-tight tracking-[-0.01em]">{dish.name}</h2>
       <p className="mt-1 text-[14px] text-muted">{dish.tagline}</p>
       <p className="mt-4 text-[15px] leading-relaxed text-ink">{dish.description}</p>
@@ -52,12 +52,12 @@ export default function DishesPage() {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {isLoading
-            ? Array.from({ length: 9 }, (_, i) => <Bar key={i} className="h-[300px] rounded-2xl" />)
+            ? Array.from({ length: 9 }, (_, i) => <Bar key={i} className="h-[300px]" />)
             : dishes?.map((dish) => <DishCard key={dish.slug} dish={dish} />)}
         </div>
       )}
 
-      <section aria-labelledby="about" className="mt-16 overflow-hidden rounded-2xl bg-raised">
+      <section aria-labelledby="about" className="mt-16 overflow-hidden bg-raised">
         <KiraBand height={14} />
         <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-12">
           <div className="lg:col-span-6">
